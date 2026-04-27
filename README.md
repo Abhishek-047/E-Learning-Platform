@@ -1,1 +1,1 @@
-# E-Learning-Platform
+# LearnPath is a React-based E-Learning platform designed to help students learn in a simple and interactive way. Users can explore courses, view course details, track their progress, and attempt quizzes. The unique feature of the project is the Smart Study Path, where users select their learning level (Beginner, Intermediate, or Advanced) and the platform recommends a personalized course path accordingly. This makes learning more structured and user-friendly.
