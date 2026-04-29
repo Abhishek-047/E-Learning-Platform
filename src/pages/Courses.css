@@ -1,0 +1,174 @@
+/* =====================================================
+   Courses.css - Styles for the All Courses page
+   ===================================================== */
+
+.courses-page {
+  padding: 50px 60px;
+}
+
+.courses-header {
+  margin-bottom: 28px;
+}
+
+.courses-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.courses-header p {
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+/* ---- Search + filter row ---- */
+.search-filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+/* Search input wrapper */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0 16px;
+  gap: 10px;
+  transition: border-color 0.2s ease;
+}
+
+.search-wrapper:focus-within {
+  border-color: #4f46e5;
+}
+
+.search-icon {
+  font-size: 1rem;
+  color: #9ca3af;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 13px 0;
+  font-size: 0.95rem;
+  font-family: "Inter", sans-serif;
+  color: #374151;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #d1d5db;
+}
+
+/* Clear button inside search */
+.search-clear {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  transition: color 0.2s;
+}
+
+.search-clear:hover {
+  color: #ef4444;
+}
+
+/* Level filter pills */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 25px;
+  background: white;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #4f46e5;
+  color: #4f46e5;
+}
+
+.filter-active {
+  background-color: #4f46e5 !important;
+  color: white !important;
+  border-color: #4f46e5 !important;
+}
+
+/* Result count text */
+.courses-count {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+/* Courses grid */
+.courses-grid-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 24px;
+}
+
+/* No results block */
+.no-results {
+  text-align: center;
+  padding: 64px 20px;
+  background: #f9fafb;
+  border: 2px dashed #e5e7eb;
+  border-radius: 16px;
+}
+
+.no-results p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.no-results-sub {
+  font-size: 0.88rem !important;
+  color: #9ca3af !important;
+  margin-bottom: 24px !important;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #4f46e5;
+  color: #4f46e5;
+  padding: 10px 22px;
+  border-radius: 9px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: #4f46e5;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .courses-page {
+    padding: 30px 20px;
+  }
+}

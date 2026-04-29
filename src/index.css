@@ -1,0 +1,39 @@
+/* =====================================================
+   index.css - Global base styles for the whole app
+   All pages share these base styles
+   ===================================================== */
+
+/* Import Google Font - Inter (clean, modern, readable) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ---- Reset & Base ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f9f9fb;
+  color: #1e1b4b;
+  min-height: 100vh;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Remove button default styles for a clean base */
+button {
+  font-family: "Inter", sans-serif;
+}

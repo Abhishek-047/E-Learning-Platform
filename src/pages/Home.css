@@ -1,0 +1,394 @@
+/* =====================================================
+   Home.css - Redesigned Home Page Styles
+   ===================================================== */
+
+/* ---- HERO SECTION ---- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 60px;
+  background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 60%, #ede9fe 100%);
+  gap: 48px;
+}
+
+.hero-content {
+  max-width: 580px;
+}
+
+/* Small badge above title */
+.hero-badge {
+  display: inline-block;
+  background-color: #ddd6fe;
+  color: #5b21b6;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1e1b4b;
+  line-height: 1.18;
+  margin-bottom: 18px;
+}
+
+.hero-highlight {
+  color: #4f46e5;
+}
+
+.hero-subtitle {
+  font-size: 1.02rem;
+  color: #6b7280;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+/* Hero CTA buttons */
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #4f46e5;
+  border: 2px solid #4f46e5;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #4f46e5;
+  color: white;
+}
+
+/* Hero visual card (right side) */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-card {
+  background: white;
+  border-radius: 18px;
+  padding: 36px 40px;
+  box-shadow: 0 10px 40px rgba(79, 70, 229, 0.15);
+  text-align: center;
+  min-width: 260px;
+}
+
+.hero-card-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+}
+
+.hero-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 8px;
+}
+
+.hero-card-path {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 16px;
+}
+
+.hero-card-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-card-tags span {
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 20px;
+}
+
+/* ---- STATS SECTION ---- */
+.stats-section {
+  background: #4f46e5;
+  padding: 36px 60px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-num {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.stat-label {
+  font-size: 0.88rem;
+  color: #c7d2fe;
+  font-weight: 500;
+}
+
+/* ---- FEATURED COURSES ---- */
+.featured-section {
+  padding: 70px 60px;
+}
+
+.section-header {
+  margin-bottom: 36px;
+}
+
+.section-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 24px;
+}
+
+.view-all-wrapper {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #4f46e5;
+  color: #4f46e5;
+  padding: 12px 26px;
+  border-radius: 9px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: #4f46e5;
+  color: white;
+}
+
+/* ---- WHY CHOOSE US ---- */
+.why-section {
+  padding: 70px 60px;
+  background-color: #f9f9fb;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+}
+
+.feature-icon {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.feature-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 0.88rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* ---- TESTIMONIALS ---- */
+.testimonials-section {
+  padding: 70px 60px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.testimonial-stars {
+  font-size: 1rem;
+}
+
+.testimonial-text {
+  font-size: 0.93rem;
+  color: #374151;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.testimonial-avatar {
+  width: 42px;
+  height: 42px;
+  background-color: #4f46e5;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin: 0;
+}
+
+.testimonial-role {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* ---- CTA BANNER ---- */
+.cta-banner {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.cta-banner h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.cta-banner p {
+  font-size: 1rem;
+  color: #c7d2fe;
+  margin-bottom: 28px;
+}
+
+.cta-banner .btn-primary {
+  background-color: white;
+  color: #4f46e5;
+  padding: 15px 34px;
+  font-size: 1.05rem;
+}
+
+.cta-banner .btn-primary:hover {
+  background-color: #eef2ff;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 50px 24px;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-section,
+  .why-section,
+  .testimonials-section {
+    padding: 50px 24px;
+  }
+
+  .stats-section {
+    padding: 28px 24px;
+  }
+}

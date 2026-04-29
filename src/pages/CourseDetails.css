@@ -1,0 +1,291 @@
+/* =====================================================
+   CourseDetails.css - Updated Course Details Page
+   ===================================================== */
+
+.course-details-page {
+  padding: 50px 60px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #4f46e5;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 28px;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  transition: opacity 0.2s;
+}
+
+.back-btn:hover {
+  opacity: 0.7;
+}
+
+/* Course header */
+.details-header {
+  margin-bottom: 36px;
+}
+
+.details-badge {
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.details-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin-bottom: 12px;
+}
+
+.details-desc {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.details-duration {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* ---- Video Section ---- */
+.video-section {
+  margin-bottom: 40px;
+}
+
+.video-section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 16px;
+}
+
+/* Responsive video wrapper using aspect-ratio trick */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  background: #000;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Section blocks */
+.details-section {
+  margin-bottom: 36px;
+}
+
+.details-section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 16px;
+}
+
+/* Topics list */
+.topics-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.topics-list li {
+  background: #eef2ff;
+  color: #3730a3;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* Lessons header row */
+.lessons-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.lessons-header h2 {
+  margin-bottom: 0 !important;
+}
+
+.lessons-progress-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #4f46e5;
+}
+
+/* Lesson progress bar */
+.lessons-progress-bar {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.lessons-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #818cf8);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* Individual lesson row */
+.lesson-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 13px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease;
+}
+
+.lesson-item-done {
+  border-color: #a7f3d0;
+  background: #f0fdf4;
+}
+
+/* Lesson number circle */
+.lesson-number {
+  background-color: #4f46e5;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
+}
+
+.lesson-num-done {
+  background-color: #22c55e !important;
+}
+
+.lesson-title {
+  flex: 1;
+  font-size: 0.92rem;
+  color: #374151;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.lesson-title-done {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+/* Mark Complete button */
+.mark-btn {
+  background: transparent;
+  border: 2px solid #4f46e5;
+  color: #4f46e5;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.mark-btn:hover {
+  background: #4f46e5;
+  color: white;
+}
+
+/* Done state for mark button */
+.mark-btn-done {
+  border-color: #22c55e !important;
+  color: #166534 !important;
+  background: #f0fdf4 !important;
+}
+
+.mark-btn-done:hover {
+  background: #dcfce7 !important;
+}
+
+/* Progress tracker button */
+.start-btn {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.start-btn:hover {
+  background-color: #4338ca;
+}
+
+/* Not found screen */
+.not-found {
+  text-align: center;
+  padding: 80px;
+}
+
+.not-found h2 {
+  color: #ef4444;
+  margin-bottom: 16px;
+}
+
+.not-found button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .course-details-page {
+    padding: 30px 20px;
+  }
+
+  .mark-btn {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+}

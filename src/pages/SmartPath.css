@@ -1,0 +1,194 @@
+/* =====================================================
+   SmartPath.css - Styles for the Smart Study Path page
+   ===================================================== */
+
+.smartpath-page {
+  padding: 50px 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.smartpath-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.smartpath-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin-bottom: 10px;
+}
+
+.smartpath-header p {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Level selector */
+.level-selector {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.level-selector h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 18px;
+}
+
+.level-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.level-btn {
+  padding: 13px 28px;
+  border: 2px solid #e5e7eb;
+  border-radius: 40px;
+  background: white;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.level-btn:hover {
+  border-color: #4f46e5;
+  color: #4f46e5;
+}
+
+/* Selected level button */
+.level-selected {
+  background-color: #4f46e5;
+  color: white !important;
+  border-color: #4f46e5 !important;
+}
+
+/* Placeholder when no level chosen */
+.path-placeholder {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9fafb;
+  border: 2px dashed #e5e7eb;
+  border-radius: 16px;
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+/* Path result */
+.path-result {
+  margin-top: 10px;
+}
+
+.path-result-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.path-result-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 8px;
+}
+
+.path-result-header p {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Steps */
+.path-steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.step-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Individual step card */
+.step-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px 24px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.step-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.step-info h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin: 0 0 6px;
+}
+
+.step-info p {
+  font-size: 0.87rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Step number shown at right */
+.step-number {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #4f46e5;
+  background: #eef2ff;
+  padding: 5px 11px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* Arrow between steps */
+.step-arrow {
+  font-size: 1.6rem;
+  color: #4f46e5;
+  margin: 8px 0;
+  font-weight: 700;
+}
+
+/* Tip box at the bottom */
+.path-tip {
+  margin-top: 30px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .smartpath-page {
+    padding: 30px 20px;
+  }
+
+  .step-number {
+    display: none;
+  }
+}
