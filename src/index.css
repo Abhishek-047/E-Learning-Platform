@@ -37,3 +37,133 @@ a {
 button {
   font-family: "Inter", sans-serif;
 }
+
+/* =====================================================
+   Dark Mode Overrides (Beginner Friendly Implementation)
+   ===================================================== */
+body.dark-mode {
+  background-color: #0f172a; /* Slate 900 */
+  color: #f8fafc; /* Slate 50 */
+}
+
+/* Navbar */
+body.dark-mode .navbar {
+  background-color: #1e293b;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .navbar-logo {
+  color: #818cf8;
+}
+
+body.dark-mode .navbar-links a {
+  color: #cbd5e1;
+}
+
+body.dark-mode .navbar-links a:hover,
+body.dark-mode .navbar-links a.active {
+  color: #818cf8;
+}
+
+body.dark-mode .theme-toggle-btn {
+  border-color: #475569;
+  color: #cbd5e1;
+}
+
+body.dark-mode .theme-toggle-btn:hover {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .profile-link {
+  background-color: #312e81;
+  color: #a5b4fc !important;
+}
+
+/* Background overrides for sections */
+body.dark-mode .why-section,
+body.dark-mode .no-results,
+body.dark-mode .course-progress-header,
+body.dark-mode .option-btn {
+  background-color: #0f172a;
+}
+
+/* Common Text Colors */
+body.dark-mode .hero-title,
+body.dark-mode .hero-card-title,
+body.dark-mode .section-title,
+body.dark-mode .stat-num,
+body.dark-mode .psc-number,
+body.dark-mode .pp-label,
+body.dark-mode .course-title,
+body.dark-mode .details-title,
+body.dark-mode .enrolled-name,
+body.dark-mode .activity-action,
+body.dark-mode .question-text,
+body.dark-mode .score-card h2,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode .courses-header h1 {
+  color: #f8fafc;
+}
+
+body.dark-mode .hero-subtitle,
+body.dark-mode .hero-card-path,
+body.dark-mode .section-subtitle,
+body.dark-mode .course-desc,
+body.dark-mode .details-desc,
+body.dark-mode .pp-value,
+body.dark-mode .enrolled-level,
+body.dark-mode .activity-time,
+body.dark-mode .courses-header p,
+body.dark-mode .courses-count,
+body.dark-mode p {
+  color: #94a3b8;
+}
+
+/* Cards & Containers */
+body.dark-mode .hero-card,
+body.dark-mode .feature-card,
+body.dark-mode .testimonial-card,
+body.dark-mode .course-card,
+body.dark-mode .p-stat-card,
+body.dark-mode .overall-progress,
+body.dark-mode .completed-summary,
+body.dark-mode .course-progress-block,
+body.dark-mode .profile-stat-card,
+body.dark-mode .profile-card,
+body.dark-mode .question-card,
+body.dark-mode .score-card,
+body.dark-mode .search-wrapper,
+body.dark-mode .filter-btn,
+body.dark-mode .lesson-item {
+  background-color: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific component tweaks */
+body.dark-mode .search-input {
+  color: #f8fafc;
+}
+
+body.dark-mode .lesson-check-item:hover {
+  background-color: #334155;
+}
+
+body.dark-mode .lesson-item-done {
+  background-color: #064e3b;
+  border-color: #047857;
+}
+
+body.dark-mode .topics-list li {
+  background-color: #1e1b4b;
+  color: #a5b4fc;
+}
+
+body.dark-mode .go-progress-btn {
+  background-color: #312e81;
+  border-color: #4f46e5;
+  color: #c7d2fe;
+}

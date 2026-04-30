@@ -4,6 +4,7 @@
 // =====================================================
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 // All page components
 import Home from "./pages/Home";
@@ -19,10 +20,27 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 function App() {
+  // Theme state: false = light mode, true = dark mode
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Toggle function
+  function toggleTheme() {
+    setIsDarkMode(!isDarkMode);
+  }
+
+  // Add or remove 'dark-mode' class on the body when state changes
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [isDarkMode]);
+
   return (
     <BrowserRouter>
-      {/* Navbar stays on top of every page */}
-      <Navbar />
+      {/* Navbar stays on top of every page, pass theme props */}
+      <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
       {/* Route definitions */}
       <Routes>
