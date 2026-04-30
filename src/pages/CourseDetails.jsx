@@ -17,18 +17,42 @@ function CourseDetails() {
   const course = courses.find((c) => c.id === parseInt(id));
 
   // Track which lessons the user has marked as complete
-  // We store lesson IDs in a Set for easy add/remove
-  const [completedLessons, setCompletedLessons] = useState(new Set());
+  // We initialize this from the global localStorage progress
+  const [completedLessons, setCompletedLessons] = useState(() => {
+    const savedProgress = localStorage.getItem("learnpath_progress");
+    const progressObj = savedProgress ? JSON.parse(savedProgress) : {};
+    
+    // Create a Set of lesson IDs that are marked true for this specific course
+    const initialSet = new Set();
+    if (course) {
+      course.lessons.forEach(lesson => {
+        if (progressObj[lesson.id]) {
+          initialSet.add(lesson.id);
+        }
+      });
+    }
+    return initialSet;
+  });
 
   // Toggle a lesson as complete or incomplete
   function toggleLesson(lessonId) {
     setCompletedLessons((prev) => {
       const updated = new Set(prev); // copy the existing set
+      let isDone = false;
       if (updated.has(lessonId)) {
         updated.delete(lessonId); // unmark if already done
+        isDone = false;
       } else {
         updated.add(lessonId); // mark as done
+        isDone = true;
       }
+
+      // Sync with global localStorage so Progress page sees it
+      const savedProgress = localStorage.getItem("learnpath_progress");
+      const progressObj = savedProgress ? JSON.parse(savedProgress) : {};
+      progressObj[lessonId] = isDone;
+      localStorage.setItem("learnpath_progress", JSON.stringify(progressObj));
+
       return updated;
     });
   }

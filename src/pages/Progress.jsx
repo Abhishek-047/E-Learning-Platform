@@ -4,13 +4,18 @@
 //          better progress bar with percentage
 // =====================================================
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { courses } from "../data/sampleData";
 import "./Progress.css";
 
 function Progress() {
-  // Build initial progress state: all lessons set to false (not done)
+  // Build initial progress state: load from localStorage if exists, else default to all false
   function buildInitialProgress() {
+    const savedProgress = localStorage.getItem("learnpath_progress");
+    if (savedProgress) {
+      return JSON.parse(savedProgress);
+    }
+    
     const progress = {};
     courses.forEach((course) => {
       course.lessons.forEach((lesson) => {
@@ -21,6 +26,11 @@ function Progress() {
   }
 
   const [completed, setCompleted] = useState(buildInitialProgress);
+
+  // Save to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("learnpath_progress", JSON.stringify(completed));
+  }, [completed]);
 
   // Toggle a lesson between done / not done
   function toggleLesson(lessonId) {
