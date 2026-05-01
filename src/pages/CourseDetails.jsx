@@ -85,6 +85,9 @@ function CourseDetails() {
     localStorage.setItem("learnpath_ratings", JSON.stringify(ratingsObj));
   }
 
+  // ---- Feature: Toggle Topics ----
+  const [showTopics, setShowTopics] = useState(false);
+
   // If course not found, show error
   if (!course) {
     return (
@@ -179,14 +182,23 @@ function CourseDetails() {
         </div>
       </div>
 
-      {/* ---- Topics Covered ---- */}
+      {/* ---- Topics Covered (Toggleable) ---- */}
       <div className="details-section">
-        <h2>📋 Topics Covered</h2>
-        <ul className="topics-list">
-          {course.topics.map((topic, index) => (
-            <li key={index}>✅ {topic}</li>
-          ))}
-        </ul>
+        <div 
+          className="topics-header-toggle" 
+          onClick={() => setShowTopics(!showTopics)}
+        >
+          <h2>📋 Topics Covered</h2>
+          <span className={`toggle-icon ${showTopics ? "open" : ""}`}>▼</span>
+        </div>
+        
+        {showTopics && (
+          <ul className="topics-list">
+            {course.topics.map((topic, index) => (
+              <li key={index}>✅ {topic}</li>
+            ))}
+          </ul>
+        )}
       </div>
 
       {/* ---- Lessons with Mark Complete ---- */}

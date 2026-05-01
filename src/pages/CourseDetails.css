@@ -112,6 +112,50 @@
 }
 
 /* Topics list */
+.topics-header-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 14px 18px;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  transition: background-color 0.2s ease;
+  margin-bottom: 12px;
+}
+
+body.dark-mode .topics-header-toggle {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+.topics-header-toggle:hover {
+  background-color: #f1f5f9;
+}
+
+body.dark-mode .topics-header-toggle:hover {
+  background-color: #334155;
+}
+
+.topics-header-toggle h2 {
+  margin-bottom: 0 !important;
+}
+
+.toggle-icon {
+  font-size: 1rem;
+  color: #64748b;
+  transition: transform 0.3s ease;
+}
+
+.toggle-icon.open {
+  transform: rotate(180deg);
+}
+
+body.dark-mode .toggle-icon {
+  color: #94a3b8;
+}
+
 .topics-list {
   list-style: none;
   padding: 0;
