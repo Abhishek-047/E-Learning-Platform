@@ -17,22 +17,7 @@ function CourseDetails() {
   const course = courses.find((c) => c.id === parseInt(id));
 
   // Track which lessons the user has marked as complete
-  // We initialize this from the global localStorage progress
-  const [completedLessons, setCompletedLessons] = useState(() => {
-    const savedProgress = localStorage.getItem("learnpath_progress");
-    const progressObj = savedProgress ? JSON.parse(savedProgress) : {};
-    
-    // Create a Set of lesson IDs that are marked true for this specific course
-    const initialSet = new Set();
-    if (course) {
-      course.lessons.forEach(lesson => {
-        if (progressObj[lesson.id]) {
-          initialSet.add(lesson.id);
-        }
-      });
-    }
-    return initialSet;
-  });
+  const [completedLessons, setCompletedLessons] = useState(new Set());
 
   // Toggle a lesson as complete or incomplete
   function toggleLesson(lessonId) {
@@ -44,45 +29,19 @@ function CourseDetails() {
         isDone = false;
       } else {
         updated.add(lessonId); // mark as done
-        isDone = true;
       }
-
-      // Sync with global localStorage so Progress page sees it
-      const savedProgress = localStorage.getItem("learnpath_progress");
-      const progressObj = savedProgress ? JSON.parse(savedProgress) : {};
-      progressObj[lessonId] = isDone;
-      localStorage.setItem("learnpath_progress", JSON.stringify(progressObj));
-
       return updated;
     });
   }
 
   // ---- Feature: Personal Scratchpad (Notes) ----
-  const [notes, setNotes] = useState(() => {
-    // Read specific course notes from local storage
-    const savedNotes = localStorage.getItem(`learnpath_notes_${id}`);
-    return savedNotes || "";
-  });
-
-  // Save notes whenever they change
-  useEffect(() => {
-    localStorage.setItem(`learnpath_notes_${id}`, notes);
-  }, [notes, id]);
+  const [notes, setNotes] = useState("");
 
   // ---- Feature: Course Rating ----
-  const [rating, setRating] = useState(() => {
-    const savedRatings = localStorage.getItem("learnpath_ratings");
-    const ratingsObj = savedRatings ? JSON.parse(savedRatings) : {};
-    return ratingsObj[id] || 0;
-  });
+  const [rating, setRating] = useState(0);
 
   function handleRating(newRating) {
     setRating(newRating);
-    // Save to global ratings object in localStorage so Profile can access it
-    const savedRatings = localStorage.getItem("learnpath_ratings");
-    const ratingsObj = savedRatings ? JSON.parse(savedRatings) : {};
-    ratingsObj[id] = newRating;
-    localStorage.setItem("learnpath_ratings", JSON.stringify(ratingsObj));
   }
 
   // ---- Feature: Toggle Topics ----

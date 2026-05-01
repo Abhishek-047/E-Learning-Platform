@@ -4,7 +4,7 @@
 //              quiz score, progress, recent activity
 // =====================================================
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { studentProfile, courses } from "../data/sampleData";
 import "./Profile.css";
@@ -23,23 +23,11 @@ function Profile() {
     (profile.quizScore / profile.quizTotal) * 100
   );
 
-  // Load rated courses from local storage
-  const [ratedCourses, setRatedCourses] = useState([]);
-
-  useEffect(() => {
-    const savedRatings = localStorage.getItem("learnpath_ratings");
-    if (savedRatings) {
-      const ratingsObj = JSON.parse(savedRatings);
-      // Find courses that have a rating
-      const rated = courses
-        .filter((c) => ratingsObj[c.id])
-        .map((c) => ({
-          ...c,
-          userRating: ratingsObj[c.id],
-        }));
-      setRatedCourses(rated);
-    }
-  }, []);
+  // Use dummy rated courses since we removed localStorage
+  const [ratedCourses] = useState([
+    { ...courses[0], userRating: 5 },
+    { ...courses[1], userRating: 4 },
+  ]);
 
   return (
     <div className="profile-page">

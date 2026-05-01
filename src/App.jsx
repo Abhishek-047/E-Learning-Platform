@@ -20,25 +20,20 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 function App() {
-  // Theme state: false = light mode, true = dark mode (with localStorage save)
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem("learnpath_theme");
-    return savedTheme === "dark" ? true : false;
-  });
+  // Theme state: false = light mode, true = dark mode
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Toggle function
   function toggleTheme() {
     setIsDarkMode(!isDarkMode);
   }
 
-  // Add or remove 'dark-mode' class on the body and save to localStorage
+  // Add or remove 'dark-mode' class on the body
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark-mode");
-      localStorage.setItem("learnpath_theme", "dark");
     } else {
       document.body.classList.remove("dark-mode");
-      localStorage.setItem("learnpath_theme", "light");
     }
   }, [isDarkMode]);
 
