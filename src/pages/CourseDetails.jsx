@@ -160,6 +160,25 @@ function CourseDetails() {
         </div>
       </div>
 
+      {/* ---- Course Rating ---- */}
+      <div className="details-section">
+        <h2>⭐ Rate This Course</h2>
+        <div className="rating-container">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <span
+              key={star}
+              className={`star ${rating >= star ? "star-filled" : ""}`}
+              onClick={() => handleRating(star)}
+            >
+              ★
+            </span>
+          ))}
+          <span className="rating-text">
+            {rating > 0 ? `You rated this ${rating}/5` : "Click to rate"}
+          </span>
+        </div>
+      </div>
+
       {/* ---- Topics Covered ---- */}
       <div className="details-section">
         <h2>📋 Topics Covered</h2>
@@ -219,27 +238,6 @@ function CourseDetails() {
           })}
         </div>
       </div>
-
-      {/* ---- Course Rating ---- */}
-      <div className="details-section">
-        <h2>⭐ Rate This Course</h2>
-        <div className="rating-container">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <span
-              key={star}
-              className={`star ${rating >= star ? "star-filled" : ""}`}
-              onClick={() => handleRating(star)}
-            >
-              ★
-            </span>
-          ))}
-          <span className="rating-text">
-            {rating > 0 ? `You rated this ${rating}/5` : "Click to rate"}
-          </span>
-        </div>
-      </div>
-
-
 
       {/* ---- Go to Progress button ---- */}
       <button className="start-btn" onClick={() => navigate("/progress")}>
