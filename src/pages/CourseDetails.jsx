@@ -127,19 +127,36 @@ function CourseDetails() {
         <p className="details-duration">⏱ Duration: {course.duration}</p>
       </div>
 
-      {/* ---- YouTube Video Embed ---- */}
-      <div className="video-section">
-        <h2>🎥 Course Preview Video</h2>
-        <div className="video-wrapper">
-          {/* We use iframe to embed the YouTube video */}
-          {/* allowFullScreen lets users go fullscreen */}
-          <iframe
-            src={course.video}
-            title={`${course.title} - Video`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+      {/* ---- Video and Scratchpad Two-Column Layout ---- */}
+      <div className="video-notes-layout">
+        {/* ---- YouTube Video Embed ---- */}
+        <div className="video-section">
+          <h2>🎥 Course Preview Video</h2>
+          <div className="video-wrapper">
+            {/* We use iframe to embed the YouTube video */}
+            {/* allowFullScreen lets users go fullscreen */}
+            <iframe
+              src={course.video}
+              title={`${course.title} - Video`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+
+        {/* ---- Personal Scratchpad ---- */}
+        <div className="details-section scratchpad-section">
+          <h2>📝 Personal Scratchpad</h2>
+          <p className="scratchpad-desc">
+            Type your notes while watching. They save automatically!
+          </p>
+          <textarea
+            className="scratchpad-input"
+            placeholder="e.g., 'React hooks let you use state without writing a class...'"
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+          ></textarea>
         </div>
       </div>
 
@@ -222,19 +239,7 @@ function CourseDetails() {
         </div>
       </div>
 
-      {/* ---- Personal Scratchpad ---- */}
-      <div className="details-section">
-        <h2>📝 Personal Scratchpad</h2>
-        <p className="scratchpad-desc">
-          Type your personal notes here while watching the video. They save automatically!
-        </p>
-        <textarea
-          className="scratchpad-input"
-          placeholder="e.g., 'React hooks let you use state without writing a class...'"
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
-        ></textarea>
-      </div>
+
 
       {/* ---- Go to Progress button ---- */}
       <button className="start-btn" onClick={() => navigate("/progress")}>

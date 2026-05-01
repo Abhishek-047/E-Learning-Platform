@@ -4,7 +4,7 @@
 
 .course-details-page {
   padding: 50px 60px;
-  max-width: 860px;
+  max-width: 1050px;
   margin: 0 auto;
 }
 
@@ -59,9 +59,17 @@
   font-size: 0.9rem;
 }
 
-/* ---- Video Section ---- */
-.video-section {
+/* ---- Video & Notes Layout ---- */
+.video-notes-layout {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
   margin-bottom: 40px;
+}
+
+/* Video Section */
+.video-section {
+  flex: 1.6;
 }
 
 .video-section h2 {
@@ -329,6 +337,13 @@ body.dark-mode .rating-text {
 }
 
 /* ---- Personal Scratchpad ---- */
+.scratchpad-section {
+  flex: 1;
+  margin-bottom: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
 .scratchpad-desc {
   font-size: 0.9rem;
   color: #6b7280;
@@ -337,6 +352,7 @@ body.dark-mode .rating-text {
 
 .scratchpad-input {
   width: 100%;
+  flex: 1; /* fills remaining height of the container */
   min-height: 180px;
   padding: 18px;
   border-radius: 12px;
@@ -364,7 +380,15 @@ body.dark-mode .scratchpad-input:focus {
   border-color: #818cf8;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .video-notes-layout {
+    flex-direction: column;
+  }
+
+  .video-notes-layout .video-section {
+    width: 100%;
+  }
+
   .course-details-page {
     padding: 30px 20px;
   }
