@@ -4,6 +4,7 @@
 //              quiz score, progress, recent activity
 // =====================================================
 
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { studentProfile, courses } from "../data/sampleData";
 import "./Profile.css";
@@ -21,6 +22,24 @@ function Profile() {
   const quizPercent = Math.round(
     (profile.quizScore / profile.quizTotal) * 100
   );
+
+  // Load rated courses from local storage
+  const [ratedCourses, setRatedCourses] = useState([]);
+
+  useEffect(() => {
+    const savedRatings = localStorage.getItem("learnpath_ratings");
+    if (savedRatings) {
+      const ratingsObj = JSON.parse(savedRatings);
+      // Find courses that have a rating
+      const rated = courses
+        .filter((c) => ratingsObj[c.id])
+        .map((c) => ({
+          ...c,
+          userRating: ratingsObj[c.id],
+        }));
+      setRatedCourses(rated);
+    }
+  }, []);
 
   return (
     <div className="profile-page">
@@ -169,6 +188,28 @@ function Profile() {
               <span className="about-icon">🏆</span>
               <span>Goal: Land first dev internship</span>
             </div>
+          </div>
+
+          {/* ---- Rated Courses ---- */}
+          <div className="profile-card">
+            <h2>⭐ Your Rated Courses</h2>
+            {ratedCourses.length === 0 ? (
+              <p className="no-ratings">You haven't rated any courses yet.</p>
+            ) : (
+              <div className="rated-list">
+                {ratedCourses.map((course) => (
+                  <div key={course.id} className="rated-item">
+                    <div className="rated-info">
+                      <p className="rated-name">{course.title}</p>
+                      <p className="rated-stars">
+                        {"★".repeat(course.userRating)}
+                        {"☆".repeat(5 - course.userRating)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

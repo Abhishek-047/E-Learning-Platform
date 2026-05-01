@@ -3,7 +3,7 @@
 // Updated: YouTube video embed, Mark Lesson Complete button
 // =====================================================
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { courses } from "../data/sampleData";
 import "./CourseDetails.css";
@@ -55,6 +55,34 @@ function CourseDetails() {
 
       return updated;
     });
+  }
+
+  // ---- Feature: Personal Scratchpad (Notes) ----
+  const [notes, setNotes] = useState(() => {
+    // Read specific course notes from local storage
+    const savedNotes = localStorage.getItem(`learnpath_notes_${id}`);
+    return savedNotes || "";
+  });
+
+  // Save notes whenever they change
+  useEffect(() => {
+    localStorage.setItem(`learnpath_notes_${id}`, notes);
+  }, [notes, id]);
+
+  // ---- Feature: Course Rating ----
+  const [rating, setRating] = useState(() => {
+    const savedRatings = localStorage.getItem("learnpath_ratings");
+    const ratingsObj = savedRatings ? JSON.parse(savedRatings) : {};
+    return ratingsObj[id] || 0;
+  });
+
+  function handleRating(newRating) {
+    setRating(newRating);
+    // Save to global ratings object in localStorage so Profile can access it
+    const savedRatings = localStorage.getItem("learnpath_ratings");
+    const ratingsObj = savedRatings ? JSON.parse(savedRatings) : {};
+    ratingsObj[id] = newRating;
+    localStorage.setItem("learnpath_ratings", JSON.stringify(ratingsObj));
   }
 
   // If course not found, show error
@@ -173,6 +201,39 @@ function CourseDetails() {
             );
           })}
         </div>
+      </div>
+
+      {/* ---- Course Rating ---- */}
+      <div className="details-section">
+        <h2>⭐ Rate This Course</h2>
+        <div className="rating-container">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <span
+              key={star}
+              className={`star ${rating >= star ? "star-filled" : ""}`}
+              onClick={() => handleRating(star)}
+            >
+              ★
+            </span>
+          ))}
+          <span className="rating-text">
+            {rating > 0 ? `You rated this ${rating}/5` : "Click to rate"}
+          </span>
+        </div>
+      </div>
+
+      {/* ---- Personal Scratchpad ---- */}
+      <div className="details-section">
+        <h2>📝 Personal Scratchpad</h2>
+        <p className="scratchpad-desc">
+          Type your personal notes here while watching the video. They save automatically!
+        </p>
+        <textarea
+          className="scratchpad-input"
+          placeholder="e.g., 'React hooks let you use state without writing a class...'"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+        ></textarea>
       </div>
 
       {/* ---- Go to Progress button ---- */}

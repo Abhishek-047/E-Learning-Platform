@@ -279,6 +279,91 @@
   font-family: "Inter", sans-serif;
 }
 
+/* ---- Course Rating ---- */
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+body.dark-mode .rating-container {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+.star {
+  font-size: 2rem;
+  color: #d1d5db; /* gray */
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.star:hover {
+  transform: scale(1.1);
+}
+
+.star-filled, .star:hover ~ .star {
+  color: #fbbf24 !important; /* amber */
+}
+
+/* To make hover work properly (highlighting previous stars), we reverse the logic visually, 
+   but for simplicity, we just rely on the React state `.star-filled` for the beginner level. */
+
+.star:hover {
+  color: #fbbf24;
+}
+
+.rating-text {
+  margin-left: 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+body.dark-mode .rating-text {
+  color: #94a3b8;
+}
+
+/* ---- Personal Scratchpad ---- */
+.scratchpad-desc {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.scratchpad-input {
+  width: 100%;
+  min-height: 180px;
+  padding: 18px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: #374151;
+  resize: vertical;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.scratchpad-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+body.dark-mode .scratchpad-input {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .scratchpad-input:focus {
+  border-color: #818cf8;
+}
+
 @media (max-width: 768px) {
   .course-details-page {
     padding: 30px 20px;
