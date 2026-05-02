@@ -37,31 +37,42 @@
   border-radius: 20px;
 }
 
-/* Course Card Like Button */
-.card-like-btn {
+/* Course Card Feedback Buttons */
+.card-feedback-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.card-feedback-btn {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  opacity: 0.6;
+  filter: grayscale(100%);
 }
 
-.card-like-btn:hover {
+.card-feedback-btn:hover {
   transform: scale(1.15);
   background-color: #f3f4f6;
+  opacity: 0.8;
+  filter: grayscale(0%);
 }
 
-body.dark-mode .card-like-btn:hover {
+body.dark-mode .card-feedback-btn:hover {
   background-color: #334155;
 }
 
-.card-like-btn.liked {
-  transform: scale(1.1);
+.card-feedback-btn.liked, .card-feedback-btn.disliked {
+  transform: scale(1.15);
+  opacity: 1;
+  filter: grayscale(0%);
 }
 
 .course-title {

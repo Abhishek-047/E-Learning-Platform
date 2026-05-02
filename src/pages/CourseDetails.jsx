@@ -47,8 +47,8 @@ function CourseDetails() {
   // ---- Feature: Toggle Topics ----
   const [showTopics, setShowTopics] = useState(false);
 
-  // ---- Feature: Like Course ----
-  const [isLiked, setIsLiked] = useState(false);
+  // ---- Feature: Like/Dislike Course ----
+  const [feedback, setFeedback] = useState(null);
 
   // If course not found, show error
   if (!course) {
@@ -108,13 +108,19 @@ function CourseDetails() {
               allowFullScreen
             ></iframe>
           </div>
-          {/* Like Button */}
+          {/* Feedback Buttons */}
           <div className="course-like-container">
             <button
-              className={`like-btn ${isLiked ? "liked" : ""}`}
-              onClick={() => setIsLiked(!isLiked)}
+              className={`like-btn ${feedback === "like" ? "liked" : ""}`}
+              onClick={() => setFeedback(feedback === "like" ? null : "like")}
             >
-              {isLiked ? "❤️ Liked" : "🤍 Like this Course"}
+              👍 
+            </button>
+            <button
+              className={`dislike-btn ${feedback === "dislike" ? "disliked" : ""}`}
+              onClick={() => setFeedback(feedback === "dislike" ? null : "dislike")}
+            >
+              👎 
             </button>
           </div>
         </div>

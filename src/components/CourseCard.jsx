@@ -9,7 +9,7 @@ import "./CourseCard.css";
 
 function CourseCard({ course }) {
   const navigate = useNavigate();
-  const [isLiked, setIsLiked] = useState(false);
+  const [feedback, setFeedback] = useState(null);
 
   // Level badge color changes based on level
   const levelColors = {
@@ -28,16 +28,28 @@ function CourseCard({ course }) {
         >
           {course.level}
         </span>
-        <button 
-          className={`card-like-btn ${isLiked ? "liked" : ""}`}
-          onClick={(e) => {
-            e.stopPropagation(); // prevent card click if any
-            setIsLiked(!isLiked);
-          }}
-          title={isLiked ? "Unlike" : "Like"}
-        >
-          {isLiked ? "❤️" : "🤍"}
-        </button>
+        <div className="card-feedback-btns">
+          <button 
+            className={`card-feedback-btn ${feedback === "like" ? "liked" : ""}`}
+            onClick={(e) => {
+              e.stopPropagation(); 
+              setFeedback(feedback === "like" ? null : "like");
+            }}
+            title="Like"
+          >
+            👍
+          </button>
+          <button 
+            className={`card-feedback-btn ${feedback === "dislike" ? "disliked" : ""}`}
+            onClick={(e) => {
+              e.stopPropagation(); 
+              setFeedback(feedback === "dislike" ? null : "dislike");
+            }}
+            title="Dislike"
+          >
+            👎
+          </button>
+        </div>
       </div>
 
       {/* Course info */}
