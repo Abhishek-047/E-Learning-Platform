@@ -3,11 +3,13 @@
 // Props: course (object), onViewDetails (function)
 // =====================================================
 
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CourseCard.css";
 
 function CourseCard({ course }) {
   const navigate = useNavigate();
+  const [isLiked, setIsLiked] = useState(false);
 
   // Level badge color changes based on level
   const levelColors = {
@@ -19,12 +21,24 @@ function CourseCard({ course }) {
   return (
     <div className="course-card">
       {/* Level badge */}
-      <span
-        className="level-badge"
-        style={{ backgroundColor: levelColors[course.level] || "#888" }}
-      >
-        {course.level}
-      </span>
+      <div className="card-header-top">
+        <span
+          className="level-badge"
+          style={{ backgroundColor: levelColors[course.level] || "#888" }}
+        >
+          {course.level}
+        </span>
+        <button 
+          className={`card-like-btn ${isLiked ? "liked" : ""}`}
+          onClick={(e) => {
+            e.stopPropagation(); // prevent card click if any
+            setIsLiked(!isLiked);
+          }}
+          title={isLiked ? "Unlike" : "Like"}
+        >
+          {isLiked ? "❤️" : "🤍"}
+        </button>
+      </div>
 
       {/* Course info */}
       <h3 className="course-title">{course.title}</h3>

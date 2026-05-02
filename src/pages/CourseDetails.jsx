@@ -47,6 +47,9 @@ function CourseDetails() {
   // ---- Feature: Toggle Topics ----
   const [showTopics, setShowTopics] = useState(false);
 
+  // ---- Feature: Like Course ----
+  const [isLiked, setIsLiked] = useState(false);
+
   // If course not found, show error
   if (!course) {
     return (
@@ -104,6 +107,15 @@ function CourseDetails() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
+          </div>
+          {/* Like Button */}
+          <div className="course-like-container">
+            <button
+              className={`like-btn ${isLiked ? "liked" : ""}`}
+              onClick={() => setIsLiked(!isLiked)}
+            >
+              {isLiked ? "❤️ Liked" : "🤍 Like this Course"}
+            </button>
           </div>
         </div>
 
