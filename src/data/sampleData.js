@@ -160,7 +160,7 @@ export const courses = [
     duration: "3 weeks",
     description:
       "Build multi-page React apps with React Router and manage complex state.",
-    video: "https://www.youtube.com/embed/Law7wfdg_ls",
+    video: "https://www.youtube.com/embed/ZP8QyCIUeIA",
     topics: [
       "React Router Setup",
       "Route Params",
@@ -338,9 +338,9 @@ export const quizQuestions = [
 
 // ---- Dummy Student Profile Data ----
 export const studentProfile = {
-  name: "Abhishek Kumar",
-  email: "abhishek.kumar@college.edu",
-  avatar: "AK", // initials for avatar
+  name: "Abhishek Panigrahi",
+  email: "abhishek.panigrahi@college.edu",
+  avatar: "AP", // initials for avatar
   level: "Intermediate",
   joinDate: "January 2024",
   enrolledCourses: 4,
